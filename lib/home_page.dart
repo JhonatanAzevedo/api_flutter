@@ -44,11 +44,18 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(snapshot.data![index]["name"]),
-                  leading: CircleAvatar(backgroundColor: Colors.transparent,
-                  backgroundImage: NetworkImage(snapshot.data![index]["avatar"]),),
-
+                return Padding(
+                  padding: const EdgeInsets.only(top: 10.0),
+                  child: Material(
+                    elevation: 2,
+                    child: ListTile(
+                      title: Text(snapshot.data![index]["name"]),
+                      subtitle: Text(snapshot.data![index]["createdAt"]),
+                      leading: CircleAvatar(backgroundColor: Colors.transparent,
+                      backgroundImage: NetworkImage(snapshot.data![index]["avatar"]),),
+                  
+                    ),
+                  ),
                 );
               },);
           }
